@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+
+<head xmlns:th="http://www.w3.org/1999/xhtml">
+	<title>Delete Prescription</title>
+	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+	<style>
+		button {
+			padding: 5px;
+			margin-right: 5px;
+		}
+	</style>
+</head>
+
+<body style="background-color: lightblue">
+	<div style="text-align: center;">
+		<h2 th:text="'Delete Prescription with ID:   '+${prescription.prescription_id}"></h2>
+
+		<form method="post" style="width: 100%">
+			<input type="submit" value="Confirm Deletion" />
+		</form>
+		<br>
+		<br>
+		<br>
+		<button style="background-color: white; color: blue;" onclick="history.go(-1)"> Go to Prescriptions</button>
+	</div>
+</body>

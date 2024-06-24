@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.w3.org/1999/xhtml">
+
+<head>
+	<title>Update Patient Record</title>
+	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+	<style>
+		button {
+			padding: 5px;
+			margin-right: 5px;
+		}
+	</style>
+</head>
+
+<body style="background-color: lightblue">
+	<div style="text-align: center;">
+		<h1>Update Patient Medical History</h1>
+		<p th:text="'Patient ID:   '+${id}"></p>
+		<p th:text="'Patient Name: '+${name}"></p>
+		<div style="text-align: center;">
+			<form role="form" method="post" th:action="@{/doctor/updatemedicalhistory/save}" th:object="${history}">
+				<table>
+					<tr>
+						<td><label>Patient ID:</label></td>
+						<td><input type="text" th:field="*{patientId}" readonly /></td>
+					</tr>
+					<tr>
+						<td><input type="date" th:field="*{diagnosis_date}" hidden /></td>
+					</tr>
+
+					<tr>
+						<td><label>Medical Condition:</label></td>
+						<td>
+							<textarea rows="5" cols="25" th:field="*{medical_condition}" required>
+            				</textarea>
+						</td>
+					</tr>
+				</table>
+				<br />
+				<input type="submit" value="Update Patient Record"></input>
+			</form>
+			<br><br><br>
+			<button style="background-color: white; color: blue;" onclick="history.go(-1)">Dashboard</button>
+		</div>
+
+
+	</div>
+</body>
+
+</html>

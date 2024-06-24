@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.w3.org/1999/xhtml">
+
+<head>
+	<title>Check Appointment</title>
+	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+	<style>
+		table,
+		th,
+		td {
+			border: 1px solid black;
+			border-collapse: collapse;
+			width: 80%;
+			text-align: center;
+			table-layout: fixed;
+		}
+
+		button {
+			padding: 5px;
+			margin-right: 5px;
+		}
+
+		a {
+			text-decoration: none;
+			color: white;
+		}
+	</style>
+</head>
+
+<body style="background-color: lightblue">
+	<div style="text-align: center;">
+		<h1>Appointments</h1>
+		<h1 th:text="'Patient Name: '+${name}"></h1>
+		<p th:text="'Patient ID:   '+${id}"></p>
+		<p th:text="'Patient Name: '+${name}"></p>
+		<table>
+			<thead>
+				<th>Appointment ID</th>
+				<th>Doctor ID</th>
+				<th>Visit Date</th>
+				<th>Slot</th>
+			</thead>
+			<tr th:each="app : ${appointments}">
+				<td th:text="${app.appointment_id}"></td>
+				<td th:text="${app.doctorId}"></td>
+				<td th:text="${app.visitDate}"></td>
+				<td th:text="${app.slot}"></td>
+			</tr>
+		</table>
+		<br><br><br>
+		<button style="background-color: white; color: blue;" onclick="history.go(-1)">Dashboard</button>
+	</div>
+</body>
+
+</html>

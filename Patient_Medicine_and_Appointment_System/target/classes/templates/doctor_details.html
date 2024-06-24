@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.w3.org/1999/xhtml">
+
+<head>
+	<title>Medical History</title>
+	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+	<style>
+		table,
+		th,
+		td {
+			border: 1px solid black;
+			border-collapse: collapse;
+			width: 80%;
+			text-align: center;
+			table-layout: fixed;
+		}
+
+		button {
+			padding: 5px;
+			margin-right: 5px;
+		}
+
+		a {
+			text-decoration: none;
+			color: white;
+		}
+	</style>
+</head>
+
+<body style="background-color: lightblue">
+	<div style="text-align: center;">
+		<h1>Doctor Details</h1>
+		<table>
+			<thead>
+				<th>Doctor ID</th>
+				<th>Doctor Name</th>
+				<th>Specialization</th>
+				<th>Email</th>
+			</thead>
+			<tr th:each="doc : ${doctors}">
+				<td th:text="${doc.doctor_id}"></td>
+				<td th:text="${doc.doctor_name}"></td>
+				<td th:text="${doc.specialization}"></td>
+				<td th:text="${doc.email}"></td>
+			</tr>
+		</table>
+		<br><br><br>
+		<button style="background-color: white; color: blue;" onclick="history.go(-1)">Dashboard</button>
+	</div>
+</body>
+
+</html>

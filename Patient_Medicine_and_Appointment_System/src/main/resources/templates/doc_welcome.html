@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.w3.org/1999/xhtml">
+
+<head>
+	<title>Welcome, Doctor</title>
+	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+</head>
+
+<body style="background-color: lightblue">
+	<div style="text-align: center;">
+		<div class="container">
+			<h1>Doctor Portal</h1>
+			<p th:text="'Doctor ID:   '+${id}"></p>
+			<p th:text="'Doctor Name: '+${name}"></p>
+			<br><br><br>
+			<a th:href="@{checkappointment/{id}(id=${id})}">
+				<button style="background-color: white; color: blue;" onclick="history.go(-1)">My Appointments</button>
+			</a>
+
+			<a th:href="@{issuedprescription/{id}(id=${id})}">
+				<button style="background-color: white; color: blue;" onclick="history.go(-1)">Issued Prescriptions</button>
+			</a>
+			<br><br><br>
+			<a href="http://localhost:8082/logout">
+				<button style="background-color: white; color: blue;" onclick="history.go(-1)">Logout</button>
+			</a>
+		</div>
+	</div>
+</body>
+
+</html>
