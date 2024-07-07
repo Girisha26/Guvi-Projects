@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.w3.org/1999/xhtml"  lang="en">
+
+<head>
+	<title>Modify Passenger Profile</title>
+	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+	<style>
+		button {
+			padding: 5px;
+			margin-right: 5px;
+		}
+
+		input {
+			padding: 5px;
+		}
+	</style>
+</head>
+
+<body style="background-color: lightblue">
+
+	<div style="text-align: center;">
+		<div style="text-align: center;">
+			<br>
+			<h1>Modify Passenger Profile</h1>
+			<p th:text="'Passenger Id:   '+${id}"></p>
+			<p th:text="'Passenger Name: '+${name}"></p>
+			<form role="form" method="post" th:action="@{/passenger/modifyprofile/save}"
+				th:object="${modifyPassengerForm}">
+				<table>
+					<tr>
+						<td><label>Passenger Name:</label></td>
+						<label>
+							<input type="text" th:field="*{passengerId}" hidden />
+						</label>
+						<td><label>
+							<input type="text" th:field="*{passengerName}" />
+						</label></td>
+					</tr>
+
+					<tr>
+						<td><label>E-mail:</label></td>
+						<td><label>
+							<input type="email" th:field="*{email}" required />
+						</label></td>
+					</tr>
+
+					<tr>
+						<td><label>Mobile No:</label></td>
+						<td><label>
+							<input type="tel" th:field="*{mobile_no}" required />
+						</label></td>
+					</tr>
+
+
+					<tr>
+						<td><label>Enter Password to Confirm</label></td>
+						<td><label>
+							<input type="password" th:field="*{login_password}" placeholder="Old or New Password"
+									required />
+						</label></td>
+					</tr>
+
+					<h2 style="color: red;"><strong>Change password every 3 months</strong></h2>
+				</table>
+				<br />
+				<input type="submit" value="Modify">
+				<br><br><br>
+				<button style="background-color: white; color: blue;" onclick="history.go(-1)">Home Page</button>
+
+				<br>
+			</form>
+
+			<br>
+	</div>
+	<br>
+	</div>
+</body>
+
+</html>
